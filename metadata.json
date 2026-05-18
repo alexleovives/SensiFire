@@ -1,0 +1,11 @@
+{
+  "name": "SensiFire",
+  "description": "Red social gaming futurista para jugadores de Free Fire. Incluye recomendador de sensibilidades con IA, sistema de rangos (Headshot King), wallpapers 4K y radar de tendencias tácticas.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and gaming statistics",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "username": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "followersCount": { "type": "number" },
+        "followingCount": { "type": "number" },
+        "sensitivitiesCount": { "type": "number" },
+        "isVerified": { "type": "boolean" },
+        "isAdmin": { "type": "boolean" },
+        "rank": { "type": "string", "enum": ["Novato", "Pro", "Maestro", "Headshot King"] },
+        "level": { "type": "number" },
+        "xp": { "type": "number" }
+      },
+      "required": ["uid", "username"]
+    },
+    "Sensitivity": {
+      "title": "Sensitivity",
+      "description": "A shared sensitivity configuration",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorPhoto": { "type": "string" },
+        "phoneModel": { "type": "string" },
+        "brand": { "type": "string" },
+        "dpi": { "type": "number" },
+        "general": { "type": "number" },
+        "redDot": { "type": "number" },
+        "scope2x": { "type": "number" },
+        "scope4x": { "type": "number" },
+        "awm": { "type": "number" },
+        "gameStyle": { "type": "string", "enum": ["Rush", "Sniper", "One Tap", "Competitivo", "Precisión"] },
+        "headshotRate": { "type": "number" },
+        "isDaily": { "type": "boolean" },
+        "beforeStats": { "type": "object" },
+        "afterStats": { "type": "object" },
+        "screenshotURL": { "type": "string" },
+        "likesCount": { "type": "number" },
+        "commentsCount": { "type": "number" },
+        "isOneTap": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorId", "general", "phoneModel", "gameStyle"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "In-app notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "message": { "type": "string" },
+        "refId": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "type", "message"]
+    },
+    "Wallpaper": {
+      "title": "Wallpaper",
+      "description": "Gaming wallpapers for the community",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "url": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Global user profiles"
+    },
+    "sensitivities/{postId}": {
+      "schema": "Sensitivity",
+      "description": "Shared sensitivity posts"
+    },
+    "notifications/{notifId}": {
+      "schema": "Notification",
+      "description": "User notifications"
+    },
+    "wallpapers/{wallId}": {
+      "schema": "Wallpaper",
+      "description": "Community wallpapers"
+    }
+  }
+}
