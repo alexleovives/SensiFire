@@ -94,7 +94,7 @@ export default function UploadView() {
                      </div>
                      <input 
                        type="range" 
-                       min="0" max="100" 
+                       min="0" max="200" 
                        value={(formData as any)[item.id]}
                        onChange={(e) => handleUpdate(item.id, parseInt(e.target.value))}
                        className="w-full accent-brand-orange h-1.5 bg-white/5 rounded-lg appearance-none cursor-pointer"

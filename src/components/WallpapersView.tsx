@@ -46,6 +46,7 @@ export default function WallpapersView() {
             <img 
               src={wp.url} 
               alt={wp.title} 
+              loading="lazy"
               className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-transparent to-transparent opacity-60" />

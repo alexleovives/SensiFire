@@ -11,10 +11,11 @@ export default function AppLayout() {
 
   useEffect(() => {
     const hasSeenTour = localStorage.getItem('sensifire_tour_completed');
-    if (!hasSeenTour) {
-      setTimeout(() => setShowTour(true), 1000);
+    if (!hasSeenTour && !showTour) {
+      const timer = setTimeout(() => setShowTour(true), 1500);
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, [showTour]);
 
   const completeTour = () => {
     localStorage.setItem('sensifire_tour_completed', 'true');

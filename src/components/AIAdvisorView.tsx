@@ -136,7 +136,7 @@ export default function AIAdvisorView() {
                     <div className="hud-progress-bg">
                       <motion.div 
                         initial={{ width: 0 }}
-                        animate={{ width: `${Math.min(100, item.val)}%` }}
+                        animate={{ width: `${(item.val / (item.label === 'DPI Recomendado' ? 1200 : 200)) * 100}%` }}
                         className={cn("hud-progress-fill", item.accent && "bg-brand-blue shadow-[0_0_10px_#00E0FF]")}
                       />
                     </div>

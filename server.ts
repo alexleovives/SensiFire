@@ -36,6 +36,8 @@ app.post("/api/ai/recommend", async (req, res) => {
         - FPS: ${fps}
         - Estilo de juego: ${gameStyle}
         
+        IMPORTANTE: Los valores de sensibilidad (general, redDot, scope2x, scope4x, awm) deben estar en un rango de 0 a 200, ya que Free Fire aumentó el límite recientemente. El DPI suele estar entre 400 y 1200.
+        
         La respuesta debe ser puramente JSON con los siguientes campos: general, redDot, scope2x, scope4x, awm, dpi, advice.`,
       config: {
         responseMimeType: "application/json",

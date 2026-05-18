@@ -102,13 +102,14 @@ export default function ContentFeed() {
              <p className="text-white/30 text-[10px] font-black uppercase tracking-widest">No se encontraron despliegues</p>
           </div>
         ) : (
-          <AnimatePresence mode="popLayout">
-            {posts.map((post, idx) => (
+          <AnimatePresence mode="popLayout" initial={false}>
+            {posts.map((post) => (
               <motion.article
                 key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.05 }}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 className="glass-card group"
               >
                 {/* Post Header */}
@@ -170,7 +171,7 @@ export default function ContentFeed() {
                       <div className="hud-progress-bg">
                         <motion.div 
                           initial={{ width: 0 }}
-                          animate={{ width: `${post[s.key]}%` }}
+                          animate={{ width: `${(post[s.key] / 200) * 100}%` }}
                           className="hud-progress-fill"
                         />
                       </div>
